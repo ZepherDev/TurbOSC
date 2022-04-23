@@ -1,0 +1,791 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{489D84FD-96D3-4409-B047-3158D4C6B813}</ProjectGuid>
+        <OutputType>Library</OutputType>
+        <AppDesignerFolder>Properties</AppDesignerFolder>
+        <RootNamespace>TurbOSC</RootNamespace>
+        <AssemblyName>TurbOSC</AssemblyName>
+        <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+        <FileAlignment>512</FileAlignment>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug\</OutputPath>
+        <DefineConstants>DEBUG;TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <PlatformTarget>AnyCPU</PlatformTarget>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release\</OutputPath>
+        <DefineConstants>TRACE</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Accessibility">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Accessibility.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Assembly-CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Assembly-CSharp-firstpass">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Assembly-CSharp-firstpass.dll</HintPath>
+        </Reference>
+        <Reference Include="AVProVideo.Extensions.Timeline">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\AVProVideo.Extensions.Timeline.dll</HintPath>
+        </Reference>
+        <Reference Include="AVProVideo.Extensions.UnityUI">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\AVProVideo.Extensions.UnityUI.dll</HintPath>
+        </Reference>
+        <Reference Include="AVProVideo.Extensions.VisualEffectGraph">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\AVProVideo.Extensions.VisualEffectGraph.dll</HintPath>
+        </Reference>
+        <Reference Include="AVProVideo.Runtime">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\AVProVideo.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="BeeByteObfuscator">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\BeeByteObfuscator.dll</HintPath>
+        </Reference>
+        <Reference Include="BlobHandles.Runtime">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\BlobHandles.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Boo.Lang.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.Compiler">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Boo.Lang.Compiler.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.Extensions">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Boo.Lang.Extensions.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.Parser">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Boo.Lang.Parser.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.PatternMatching">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Boo.Lang.PatternMatching.dll</HintPath>
+        </Reference>
+        <Reference Include="Boo.Lang.Useful">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Boo.Lang.Useful.dll</HintPath>
+        </Reference>
+        <Reference Include="Cinemachine">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Cinemachine.dll</HintPath>
+        </Reference>
+        <Reference Include="clipper_library">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\clipper_library.dll</HintPath>
+        </Reference>
+        <Reference Include="Collections.Pooled">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Collections.Pooled.dll</HintPath>
+        </Reference>
+        <Reference Include="Commons.Xml.Relaxng">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Commons.Xml.Relaxng.dll</HintPath>
+        </Reference>
+        <Reference Include="cscompmgd">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\cscompmgd.dll</HintPath>
+        </Reference>
+        <Reference Include="CustomMarshalers">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\CustomMarshalers.dll</HintPath>
+        </Reference>
+        <Reference Include="DataModel">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\DataModel.dll</HintPath>
+        </Reference>
+        <Reference Include="DOTween">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\DOTween.dll</HintPath>
+        </Reference>
+        <Reference Include="DOTween.Modules">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\DOTween.Modules.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\I18N.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.CJK">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\I18N.CJK.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.MidEast">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\I18N.MidEast.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.Other">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\I18N.Other.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.Rare">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\I18N.Rare.dll</HintPath>
+        </Reference>
+        <Reference Include="I18N.West">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\I18N.West.dll</HintPath>
+        </Reference>
+        <Reference Include="IBM.Data.DB2">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\IBM.Data.DB2.dll</HintPath>
+        </Reference>
+        <Reference Include="Iced">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Iced.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppMono.Security">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppMono.Security.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2Cppmscorlib">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2Cppmscorlib.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppNewtonsoft.Json">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppNewtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Buffers">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Buffers.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Collections.Immutable">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Collections.Immutable.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Configuration">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Configuration.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Core">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Diagnostics.StackTrace">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Diagnostics.StackTrace.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Globalization.Extensions">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Globalization.Extensions.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.IO.Compression">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.IO.Compression.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Memory">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Memory.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Runtime">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Runtime.CompilerServices.Unsafe">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Runtime.CompilerServices.Unsafe.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Runtime.Serialization">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Runtime.Serialization.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Threading.Tasks.Extensions">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Threading.Tasks.Extensions.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.ValueTuple">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.ValueTuple.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Xml">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Xml.dll</HintPath>
+        </Reference>
+        <Reference Include="Il2CppSystem.Xml.Linq">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Il2CppSystem.Xml.Linq.dll</HintPath>
+        </Reference>
+        <Reference Include="MelonLoader">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\MelonLoader.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.CSharp">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Microsoft.CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Microsoft.Web.Infrastructure">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Microsoft.Web.Infrastructure.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.CompilerServices.SymbolWriter">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Mono.CompilerServices.SymbolWriter.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.CSharp">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Mono.CSharp.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Data.Sqlite">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Mono.Data.Sqlite.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Data.Tds">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Mono.Data.Tds.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Messaging">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Mono.Messaging.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Posix">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Mono.Posix.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.Security">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Mono.Security.dll</HintPath>
+        </Reference>
+        <Reference Include="Mono.WebBrowser">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Mono.WebBrowser.dll</HintPath>
+        </Reference>
+        <Reference Include="mscorlib">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\mscorlib.dll</HintPath>
+        </Reference>
+        <Reference Include="netstandard">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\netstandard.dll</HintPath>
+        </Reference>
+        <Reference Include="Newtonsoft.Json">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Newtonsoft.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="Novell.Directory.Ldap">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Novell.Directory.Ldap.dll</HintPath>
+        </Reference>
+        <Reference Include="Oculus.Platform">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Oculus.Platform.dll</HintPath>
+        </Reference>
+        <Reference Include="Oculus.VR">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Oculus.VR.dll</HintPath>
+        </Reference>
+        <Reference Include="OscCore.Runtime">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\OscCore.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Photon-DotNet">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Photon-DotNet.dll</HintPath>
+        </Reference>
+        <Reference Include="ShapesRuntime">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\ShapesRuntime.dll</HintPath>
+        </Reference>
+        <Reference Include="Sigtrap.VrTunnellingPro">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Sigtrap.VrTunnellingPro.dll</HintPath>
+        </Reference>
+        <Reference Include="SMDiagnostics">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\SMDiagnostics.dll</HintPath>
+        </Reference>
+        <Reference Include="System" />
+        <Reference Include="System.ComponentModel.Composition">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ComponentModel.Composition.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ComponentModel.DataAnnotations">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ComponentModel.DataAnnotations.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Configuration">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Configuration.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Configuration.Install">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Configuration.Install.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Core" />
+        <Reference Include="System.Data" />
+        <Reference Include="System.Data.DataSetExtensions">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Data.DataSetExtensions.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.Entity">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Data.Entity.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.Linq">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Data.Linq.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.OracleClient">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Data.OracleClient.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.Services">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Data.Services.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Data.Services.Client">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Data.Services.Client.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Design">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Design.dll</HintPath>
+        </Reference>
+        <Reference Include="System.DirectoryServices">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.DirectoryServices.dll</HintPath>
+        </Reference>
+        <Reference Include="System.DirectoryServices.Protocols">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.DirectoryServices.Protocols.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Drawing">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Drawing.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Drawing.Design">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Drawing.Design.dll</HintPath>
+        </Reference>
+        <Reference Include="System.EnterpriseServices">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.EnterpriseServices.dll</HintPath>
+        </Reference>
+        <Reference Include="System.IdentityModel">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.IdentityModel.dll</HintPath>
+        </Reference>
+        <Reference Include="System.IdentityModel.Selectors">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.IdentityModel.Selectors.dll</HintPath>
+        </Reference>
+        <Reference Include="System.IO.Compression">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.IO.Compression.dll</HintPath>
+        </Reference>
+        <Reference Include="System.IO.Compression.FileSystem">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.IO.Compression.FileSystem.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Json">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Json.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Management">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Management.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Messaging">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Messaging.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Net">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Net.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Net.Http">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Net.Http.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Net.Http.Formatting">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Net.Http.Formatting.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Net.Http.WebRequest">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Net.Http.WebRequest.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Numerics">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Numerics.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Numerics.Vectors">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Numerics.Vectors.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Reflection.Context">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Reflection.Context.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Runtime.Caching">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Runtime.Caching.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Runtime.DurableInstancing">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Runtime.DurableInstancing.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Runtime.Remoting">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Runtime.Remoting.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Runtime.Serialization">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Runtime.Serialization.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Runtime.Serialization.Formatters.Soap">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Runtime.Serialization.Formatters.Soap.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Security">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Security.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ServiceModel">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ServiceModel.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ServiceModel.Activation">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ServiceModel.Activation.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ServiceModel.Discovery">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ServiceModel.Discovery.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ServiceModel.Internals">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ServiceModel.Internals.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ServiceModel.Routing">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ServiceModel.Routing.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ServiceModel.Web">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ServiceModel.Web.dll</HintPath>
+        </Reference>
+        <Reference Include="System.ServiceProcess">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.ServiceProcess.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Transactions">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Transactions.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Abstractions">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Abstractions.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.ApplicationServices">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.ApplicationServices.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.DynamicData">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.DynamicData.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Extensions">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Extensions.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Extensions.Design">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Extensions.Design.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Http">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Http.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Http.SelfHost">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Http.SelfHost.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Http.WebHost">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Http.WebHost.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Mvc">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Mvc.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Razor">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Razor.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.RegularExpressions">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.RegularExpressions.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Routing">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Routing.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.Services">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.Services.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.WebPages">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.WebPages.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.WebPages.Deployment">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.WebPages.Deployment.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Web.WebPages.Razor">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Web.WebPages.Razor.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Windows.Forms">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Windows.Forms.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Windows.Forms.DataVisualization">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Windows.Forms.DataVisualization.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Xaml">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Xaml.dll</HintPath>
+        </Reference>
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Xml.Linq">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\System.Xml.Linq.dll</HintPath>
+        </Reference>
+        <Reference Include="SystemWebTestShim">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\SystemWebTestShim.dll</HintPath>
+        </Reference>
+        <Reference Include="Transmtn">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Transmtn.dll</HintPath>
+        </Reference>
+        <Reference Include="UnhollowerBaseLib">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnhollowerBaseLib.dll</HintPath>
+        </Reference>
+        <Reference Include="UnhollowerRuntimeLib">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnhollowerRuntimeLib.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask.Addressables">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UniTask.Addressables.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask.DOTween">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UniTask.DOTween.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask.Linq">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UniTask.Linq.dll</HintPath>
+        </Reference>
+        <Reference Include="UniTask.TextMeshPro">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UniTask.TextMeshPro.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Burst">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Unity.Burst.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Burst.Unsafe">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Unity.Burst.Unsafe.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Collections">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Unity.Collections.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.InputSystem">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Unity.InputSystem.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Mathematics">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Unity.Mathematics.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Postprocessing.Runtime">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Unity.Postprocessing.Runtime.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.TextMeshPro">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Unity.TextMeshPro.dll</HintPath>
+        </Reference>
+        <Reference Include="Unity.Timeline">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\Unity.Timeline.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AccessibilityModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.AccessibilityModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AIModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.AIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AndroidJNIModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.AndroidJNIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AnimationModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.AnimationModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ARModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.ARModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AssetBundleModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.AssetBundleModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.AudioModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.AudioModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ClothModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.ClothModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ClusterInputModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.ClusterInputModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ClusterRendererModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.ClusterRendererModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CoreModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.CoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.CrashReportingModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.CrashReportingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.DirectorModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.DirectorModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.DSPGraphModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.DSPGraphModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.GameCenterModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.GameCenterModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.GridModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.GridModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.HotReloadModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.HotReloadModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.Il2CppAssetBundleManager">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.Il2CppAssetBundleManager.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.Il2CppImageConversionManager">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.Il2CppImageConversionManager.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ImageConversionModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.ImageConversionModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.IMGUIModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.IMGUIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.InputLegacyModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.InputLegacyModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.InputModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.InputModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.JSONSerializeModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.JSONSerializeModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.LocalizationModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.LocalizationModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ParticleSystemModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.ParticleSystemModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PerformanceReportingModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.PerformanceReportingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.Physics2DModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.Physics2DModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.PhysicsModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.PhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ProfilerModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.ProfilerModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.ScreenCaptureModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.ScreenCaptureModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SharedInternalsModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.SharedInternalsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SpriteMaskModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.SpriteMaskModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SpriteShapeModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.SpriteShapeModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.StreamingModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.StreamingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SubstanceModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.SubstanceModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.SubsystemsModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.SubsystemsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TerrainModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.TerrainModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TerrainPhysicsModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.TerrainPhysicsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TextCoreModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.TextCoreModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TextRenderingModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.TextRenderingModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TilemapModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.TilemapModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.TLSModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.TLSModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UI">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UI.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UIElementsModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UIElementsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UIModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UIModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UmbraModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UmbraModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UNETModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UNETModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityAnalyticsModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UnityAnalyticsModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityConnectModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UnityConnectModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityTestProtocolModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UnityTestProtocolModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestAssetBundleModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UnityWebRequestAssetBundleModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UnityWebRequestModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.VehiclesModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.VehiclesModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.VFXModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.VFXModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.VideoModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.VideoModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.VRModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.VRModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.WindModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.WindModule.dll</HintPath>
+        </Reference>
+        <Reference Include="UnityEngine.XRModule">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\UnityEngine.XRModule.dll</HintPath>
+        </Reference>
+        <Reference Include="ValueTupleBridge">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\ValueTupleBridge.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Dynamics">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Dynamics.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.SDK3.Dynamics.Contact">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.SDK3.Dynamics.Contact.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.SDK3.Dynamics.PhysBone">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.SDK3.Dynamics.PhysBone.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.SDKBase.Editor.BuildPipeline">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.SDKBase.Editor.BuildPipeline.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.ClientBindings">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.ClientBindings.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Common">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.Common.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Security">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.Security.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Serialization.AOT">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.Serialization.AOT.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Serialization.OdinSerializer">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.Serialization.OdinSerializer.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.VM">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.VM.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.VRCWrapperModules">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.VRCWrapperModules.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Udon.Wrapper">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Udon.Wrapper.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.UI.Core">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.UI.Core.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.UI.Elements">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.UI.Elements.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.UI.Shared">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.UI.Shared.dll</HintPath>
+        </Reference>
+        <Reference Include="VRC.Utility">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRC.Utility.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCCore-Editor">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRCCore-Editor.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCLog">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRCLog.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCSDK2">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRCSDK2.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCSDK3">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRCSDK3.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCSDK3A">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRCSDK3A.dll</HintPath>
+        </Reference>
+        <Reference Include="VRCSDKBase">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\VRCSDKBase.dll</HintPath>
+        </Reference>
+        <Reference Include="websocket-sharp">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\websocket-sharp.dll</HintPath>
+        </Reference>
+        <Reference Include="WindowsBase">
+          <HintPath>..\..\..\..\..\Program Files\Oculus\Software\Software\vrchat-vrchat\MelonLoader\Managed\WindowsBase.dll</HintPath>
+        </Reference>
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="IKSync.cs" />
+        <Compile Include="Main.cs" />
+        <Compile Include="ParamLib\BaseParam.cs" />
+        <Compile Include="ParamLib\ParamLib.cs" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="ParamLib\.git" />
+      <Content Include="ParamLib\LICENSE" />
+      <Content Include="ParamLib\README.md" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+    <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+         Other similar extension points exist, see Microsoft.Common.targets.
+    <Target Name="BeforeBuild">
+    </Target>
+    <Target Name="AfterBuild">
+    </Target>
+    -->
+
+</Project>
